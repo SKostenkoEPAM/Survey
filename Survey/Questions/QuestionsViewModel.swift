@@ -24,7 +24,11 @@ class QuestionsViewModel: ObservableObject {
     @Published var isQuestionsLoaded = false
     @Published var isQuestionsLoadingError = false
     
-    @Published private var answeredQuestions: [AnsweredQuestion] = []
+    @Published private var answeredQuestions: [AnsweredQuestion] = [] {
+        didSet {
+            setupAssigns()
+        }
+    }
     @Published private var currentQuestionIndex = 0
     
     @Published var answeredQuestionsCount = ""
@@ -57,7 +61,6 @@ class QuestionsViewModel: ObservableObject {
             let questions = try await service.getQuestions()
             await MainActor.run {
                 answeredQuestions = questions.map { AnsweredQuestion(question: $0, answer: "") }
-                setupAssigns()
                 isQuestionsLoaded = true
             }
         } catch {

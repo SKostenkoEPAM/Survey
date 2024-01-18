@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "question": "What is your favourite colour?"
+    },
+    {
+        "id": 2,
+        "question": "What is your favourite food?"
+    },
+    {
+        "id": 3,
+        "question": "What is your favourite country?"
+    },
+    {
+        "id": 4,
+        "question": "What is your favourite sport?"
+    },
+    {
+        "id": 5,
+        "question": "What is your favourite team?"
+    },
+    {
+        "id": 6,
+        "question": "What is your favourite programming language?"
+    },
+    {
+        "id": 7,
+        "question": "What is your favourite song?"
+    },
+    {
+        "id": 8,
+        "question": "What is your favourite band?"
+    },
+    {
+        "id": 9,
+        "question": "What is your favourite music?"
+    },
+    {
+        "id": 10,
+        "question": "What is your favourite brand?"
+    }
+]

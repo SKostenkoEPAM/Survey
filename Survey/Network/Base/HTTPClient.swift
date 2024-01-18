@@ -45,7 +45,6 @@ extension HTTPClient {
         guard let response = response as? HTTPURLResponse else {
             throw RequestError.noResponse
         }
-        print("statusCode = \(response.statusCode)") // TODO: delete this line
         switch response.statusCode {
         case 200...299:
             return

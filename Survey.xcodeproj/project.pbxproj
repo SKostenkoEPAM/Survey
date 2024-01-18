@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C70897FD2B5809630099BED2 /* QuestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70897FC2B5809630099BED2 /* QuestionsViewModel.swift */; };
 		C736DD2C2B58C11300B560BB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = C736DD2B2B58C11300B560BB /* Question.swift */; };
+		C736E1832B58CFF600B560BB /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C736E1822B58CFF600B560BB /* Mockable.swift */; };
+		C736E1852B58D06000B560BB /* questions_response.json in Resources */ = {isa = PBXBuildFile; fileRef = C736E1842B58D06000B560BB /* questions_response.json */; };
 		C7DE99142B56740F00462044 /* SurveyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE99132B56740F00462044 /* SurveyApp.swift */; };
 		C7DE99182B56741100462044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE99172B56741100462044 /* Assets.xcassets */; };
 		C7DE991B2B56741100462044 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE991A2B56741100462044 /* Preview Assets.xcassets */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		C70897FC2B5809630099BED2 /* QuestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewModel.swift; sourceTree = "<group>"; };
 		C736DD2B2B58C11300B560BB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		C736E1822B58CFF600B560BB /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
+		C736E1842B58D06000B560BB /* questions_response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions_response.json; sourceTree = "<group>"; };
 		C7DE99102B56740F00462044 /* Survey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Survey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DE99132B56740F00462044 /* SurveyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyApp.swift; sourceTree = "<group>"; };
 		C7DE99172B56741100462044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,7 +163,9 @@
 		C7DE99232B56741200462044 /* SurveyTests */ = {
 			isa = PBXGroup;
 			children = (
+				C736E1842B58D06000B560BB /* questions_response.json */,
 				C7DE99242B56741200462044 /* SurveyTests.swift */,
+				C736E1822B58CFF600B560BB /* Mockable.swift */,
 			);
 			path = SurveyTests;
 			sourceTree = "<group>";
@@ -323,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C736E1852B58D06000B560BB /* questions_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7DE99252B56741200462044 /* SurveyTests.swift in Sources */,
+				C736E1832B58CFF600B560BB /* Mockable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

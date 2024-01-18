@@ -7,30 +7,71 @@
 
 import XCTest
 @testable import Survey
+import Combine
 
 final class SurveyTests: XCTestCase {
-
+    
+    private var subject: QuestionsViewModel!
+    private var cancellables: Set<AnyCancellable> = []
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        
+        subject = QuestionsViewModel(service: QuestionsServiceMock())
     }
-
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        cancellables.forEach { $0.cancel() }
+        subject = nil
+        
+        try super.tearDownWithError()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testSubmitButtonWithNotEmptyAnswer() async {
+        await subject.getQuestions()
+        subject.currentQuestionAnswer = "something"
+        
+        subject.$isSubmitDisabled.sink {
+            XCTAssertFalse($0)
         }
+        .store(in: &cancellables)
     }
+    
+    func testIsPreviousButtonDisabled1() async {
+        await subject.getQuestions()
+        
+        subject.$isPreviousDisabled.sink {
+            XCTAssertTrue($0)
+        }
+        .store(in: &cancellables)
+    }
+    
+    func testIsPreviousButtonDisabled2() async {
+        await subject.getQuestions()
+        subject.openNextQuestion()
+        
+        subject.$isPreviousDisabled.sink {
+            XCTAssertFalse($0)
+        }
+        .store(in: &cancellables)
+    }
+    
+    func testQuestionsServiceMock() async {
+        let serviceMock = QuestionsServiceMock()
+        let result = try! await serviceMock.getQuestions()
+        
+        XCTAssertEqual(result[0].question, "What is your favourite colour?")
+    }
+    
 
+}
+
+class QuestionsServiceMock: Mockable, QuestionsServiceable {
+    func getQuestions() async throws -> [Survey.Question] {
+        return loadJSON(filename: "questions_response", type: [Question].self)
+    }
+    
+    func submitAnswer(_ answer: String, for id: Int) async throws {
+        return
+    }
 }
